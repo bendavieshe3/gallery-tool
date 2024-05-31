@@ -1,8 +1,8 @@
-# AI Art Review Gallery
+# Gallery Tool
 
 ## Overview
 
-The AI Art Review Gallery is a local web application designed to display and manage image galleries. Each gallery corresponds to a pre-configured file folder and displays a set of thumbnails for the images in that folder. Users can click on an image to view it in full screen. The application supports navigation between different galleries and offers various image management features.
+The Gallery Tool is a local web application designed to display and manage image galleries. Each gallery corresponds to a pre-configured file folder and displays a set of thumbnails for the images in that folder. Users can click on an image to view it in full screen. The application supports navigation between different galleries and offers various image management features.
 
 ## Features
 
