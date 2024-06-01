@@ -42,3 +42,6 @@ jspm_packages/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Configuration - may contain local directory structure
+config/directories.json

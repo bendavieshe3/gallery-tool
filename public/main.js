@@ -1,14 +1,26 @@
 $(document).ready(function () {
     // Load gallery list
-    $.get('/api/gallery', function (data) {
-        data.forEach(function (gallery) {
-            $('#gallery-list').append(`<div>${gallery}</div>`);
+    $.get('/api/gallery', function (galleries) {
+        galleries.forEach(function (gallery) {
+            $('#gallery-list').append(`<div class="gallery" data-name="${gallery}">${gallery}</div>`);
         });
     });
 
-    // Event listener for clicking on an image
-    $('#gallery-list').on('click', 'img', function () {
-        const src = $(this).attr('src');
+    // Load images when a gallery is clicked
+    $('#gallery-list').on('click', '.gallery', function () {
+        const galleryName = $(this).data('name');
+        $.get(`/api/gallery/${galleryName}`, function (images) {
+            $('#gallery-images').empty();
+            images.forEach(function (image) {
+                const thumbnailSrc = `/api/image/${galleryName}/${image}/thumbnail`;
+                $('#gallery-images').append(`<img src="${thumbnailSrc}" class="thumbnail" data-gallery="${galleryName}" data-image="${image}">`);
+            });
+        });
+    });
+
+    // Display full image when a thumbnail is clicked
+    $('#gallery-images').on('click', '.thumbnail', function () {
+        const src = `/api/image/${$(this).data('gallery')}/${$(this).data('image')}`;
         $('#image-fullscreen').attr('src', src);
         $('#image-viewer').show();
     });
