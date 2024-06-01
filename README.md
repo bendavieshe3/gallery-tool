@@ -38,11 +38,13 @@ The Gallery Tool is a local web application designed to display and manage image
    git clone <repository-url>
    cd ai-art-review-gallery
    ```
+
 2. Install dependencies:
 
    ```
    npm install
-   ```   
+   ```
+      
    3. Run the application:
 
    ```
