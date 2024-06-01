@@ -19,9 +19,11 @@ router.get('/:gallery/:image', (req, res) => {
         if (fs.existsSync(imagePath)) {
             res.sendFile(imagePath);
         } else {
+        	console.warning('Image not found');
             res.status(404).send('Image not found');
         }
     } else {
+    	console.warning('Gallery not found');
         res.status(404).send('Gallery not found');
     }
 });
@@ -39,12 +41,15 @@ router.get('/:gallery/:image/thumbnail', (req, res) => {
             res.sendFile(thumbnailPath);
         } else {
             if (!fs.existsSync(thumbnailDir)) {
+            	console.log('Making new thumbnails directory for gallery');
                 fs.mkdirSync(thumbnailDir);
             }
+            console.log('Making new thumbnail')
             sharp(imagePath)
                 .resize(200)
                 .toFile(thumbnailPath, (err, info) => {
                     if (err) {
+                    	console.error('Error generating thumbnail');
                         res.status(500).send('Error generating thumbnail');
                     } else {
                         res.sendFile(thumbnailPath);
