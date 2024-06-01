@@ -1,0 +1,8 @@
+//directories.js
+
+{
+    "galleries": [
+        "/path/to/gallery1",
+        "/path/to/gallery2"
+    ]
+}

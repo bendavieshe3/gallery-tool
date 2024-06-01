@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Initial project structure and setup
+	- https://github.com/bendavieshe3/gallery-tool/commit/77b3d6214981b59edac512ab54423043c8fa5a5a
 - Basic Express server with routes for gallery and image management
 - Configuration file for directories
 - Thumbnail generation with Sharp
